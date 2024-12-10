@@ -1,13 +1,18 @@
 package test;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Scanner;
 
 import org.junit.Assert;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import src.Main;
 
@@ -26,14 +31,19 @@ public class MainTest {
         System.setOut(printStream);
     }
 
-    @Test
-    @DisplayName("Comprueba que main devulve el saludo")
-    void testMain() {
-        Main.main(new String[1]);
-        // Capturar la salida como una cadena
-        String salidaCapturada = outputStream.toString().trim(); // Usar trim() para eliminar saltos de línea al final
+    @DisplayName("Si la puntuación está entre 90 y 100, muestra 'A'")
+    @ParameterizedTest
+    @CsvSource({ "'90\n'", "'95\n'", "'100\n'" })
+    void testMuestraA(String nota) {
 
-        // Verificar que la salida sea la esperada
-        Assert.assertEquals("Hola, Mundo!", salidaCapturada);
+        ByteArrayInputStream in = new ByteArrayInputStream(nota.getBytes());
+        System.setIn(in);
+        Main.sc = new Scanner(System.in);
+
+        Main.main(new String[1]);
+
+        String salidaCapturada = outputStream.toString().trim();
+
+        Assert.assertEquals("A", salidaCapturada);
     }
 }
