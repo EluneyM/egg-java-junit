@@ -27,13 +27,13 @@ public class MainTest {
     }
 
     @Test
-    @DisplayName("Comprueba que main devulve el saludo")
+    @DisplayName("Comprueba que el número aleatorio mostrado por pantalla esté dentro del rango 1 y 355")
     void testMain() {
         Main.main(new String[1]);
         // Capturar la salida como una cadena
         Integer salidaCapturada = Integer.valueOf(outputStream.toString().trim()); // Usar trim() para eliminar saltos de línea al final
 
-        boolean numeroEntre1Y355 = (salidaCapturada >= 1 || salidaCapturada <= 355);
+        boolean numeroEntre1Y355 = (salidaCapturada >= 1 && salidaCapturada <= 355);
         // Verificar que la salida sea la esperada
         Assert.assertTrue(numeroEntre1Y355);
     }
