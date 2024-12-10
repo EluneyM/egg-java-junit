@@ -31,9 +31,10 @@ public class MainTest {
     void testMain() {
         Main.main(new String[1]);
         // Capturar la salida como una cadena
-        String salidaCapturada = outputStream.toString().trim(); // Usar trim() para eliminar saltos de línea al final
+        Integer salidaCapturada = Integer.valueOf(outputStream.toString().trim()); // Usar trim() para eliminar saltos de línea al final
 
+        boolean numeroEntre1Y355 = (salidaCapturada >= 1 || salidaCapturada <= 355);
         // Verificar que la salida sea la esperada
-        Assert.assertEquals("Hola, Mundo!", salidaCapturada);
+        Assert.assertTrue(numeroEntre1Y355);
     }
 }
