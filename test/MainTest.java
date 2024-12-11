@@ -44,7 +44,7 @@ public class MainTest {
         String resultadoEsperado = """
             ¿Qué figura geométrica desea utilizar?
             1 - Círculo
-            2 - Tríangulo
+            2 - Tríangulo Reactángulo
             3 - Paralelogramo
 
             Ingrese radio del circulo
@@ -72,7 +72,7 @@ public class MainTest {
         String resultadoEsperado = """
             ¿Qué figura geométrica desea utilizar?
             1 - Círculo
-            2 - Tríangulo
+            2 - Tríangulo Reactángulo
             3 - Paralelogramo
 
             Ingrese radio del circulo
@@ -81,6 +81,66 @@ public class MainTest {
                 2 - Área del círculo
 
             El área del círculo es 314.16""";
+
+        Assert.assertEquals(resultadoEsperado, salidaCapturada);
+    }
+
+    @Test
+    @DisplayName("Debería calcular el perímetro del tríangulo rectángulo")
+    void testCalcularPerimetroDelTrianguloRectangulo() {
+        byte[] entradaPorTeclado = "2\n10\n20\n1\n".getBytes();
+
+        ByteArrayInputStream in = new ByteArrayInputStream(entradaPorTeclado);
+        System.setIn(in);
+        Main.sc = new Scanner(System.in);
+
+        Main.main(new String[1]);
+
+        String salidaCapturada = outputStream.toString().trim();
+
+        String resultadoEsperado = """
+            ¿Qué figura geométrica desea utilizar?
+            1 - Círculo
+            2 - Tríangulo Reactángulo
+            3 - Paralelogramo
+
+            Ingrese la base del tríangulo: 
+            Ingrese altura del tríangulo:
+                ¿Qué desea calcular?
+                1 - Perímetro del tríangulo
+                2 - Área del tríangulo
+
+            El perímetro del tríangulo es 52.36""";
+
+        Assert.assertEquals(resultadoEsperado, salidaCapturada);
+    }
+
+    @Test
+    @DisplayName("Debería calcular el área del tríangulo rectángulo")
+    void testCalcularAreaDelTrianguloRectangulo() {
+        byte[] entradaPorTeclado = "2\n10\n20\n2\n".getBytes();
+
+        ByteArrayInputStream in = new ByteArrayInputStream(entradaPorTeclado);
+        System.setIn(in);
+        Main.sc = new Scanner(System.in);
+
+        Main.main(new String[1]);
+
+        String salidaCapturada = outputStream.toString().trim();
+
+        String resultadoEsperado = """
+            ¿Qué figura geométrica desea utilizar?
+            1 - Círculo
+            2 - Tríangulo Reactángulo
+            3 - Paralelogramo
+
+            Ingrese la base del tríangulo: 
+            Ingrese altura del tríangulo:
+                ¿Qué desea calcular?
+                1 - Perímetro del tríangulo
+                2 - Área del tríangulo
+
+            El área del tríangulo es 100.00""";
 
         Assert.assertEquals(resultadoEsperado, salidaCapturada);
     }

@@ -1,6 +1,6 @@
 package models;
 
-public class Circulo {
+public class Circulo extends FiguraGeometrica{
     
     private double radio;
 
@@ -12,10 +12,12 @@ public class Circulo {
         return new Circulo(radio);
     }
 
+    @Override
     public void calcularPerimetro(){
         System.out.printf("El perímetro del círculo es %.2f \n", 2 * Math.PI * this.radio);
     }
-
+    
+    @Override
     public void calcularArea() {
         System.out.printf("El área del círculo es %.2f \n", Math.PI * (this.radio * this.radio)); 
     }
