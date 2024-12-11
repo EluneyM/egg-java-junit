@@ -1,4 +1,4 @@
-Actividad - Validación de contraseña
+# Actividad - Validación de contraseña
 
 Crea  un programa un programa que solicite al usuario que ingrese una contraseña y verifique si cumple con los siguientes criterios para considerarse segura:
 
