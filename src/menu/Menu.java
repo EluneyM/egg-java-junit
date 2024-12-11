@@ -29,17 +29,15 @@ public class Menu {
             case 3:
                 return new OpcionParalelogramo();
             default:
-                System.out.println("Opción no válida.");
-                return null;
+                return new OpcionInvalida();
         }
     }
 
     public void iniciar() {
         mostrarMenu();
         int opcion = Integer.valueOf(sc.nextLine());
+        
         OpcionMenu opcionSeleccionada = seleccionarOpcion(opcion);
-        if (opcionSeleccionada != null) {
-            opcionSeleccionada.ejecutar(sc);
-        }
+        opcionSeleccionada.ejecutar(sc);
     }
 }
