@@ -27,7 +27,9 @@ public class OpcionParalelogramo implements OpcionMenu{
 
         if (opcionCalculo == 1) {
             paralelogramo.calcularPerimetro();
-        } else {
+        }
+
+        if (opcionCalculo == 2) {
             paralelogramo.calcularArea();
         }
     }

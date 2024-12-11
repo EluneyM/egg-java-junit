@@ -24,7 +24,9 @@ public class OpcionCirculo implements OpcionMenu {
 
         if (opcionCalculo == 1) {
             circulo.calcularPerimetro();
-        } else {
+        }
+        
+        if (opcionCalculo == 2) {
             circulo.calcularArea();
         }
     }

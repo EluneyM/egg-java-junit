@@ -27,7 +27,9 @@ public class OpcionTrianguloRectangulo implements OpcionMenu {
 
         if (opcionCalculo == 1) {
             trianguloRectangulo.calcularPerimetro();
-        } else {
+        }
+        
+        if (opcionCalculo == 2) {
             trianguloRectangulo.calcularArea();
         }
     }
