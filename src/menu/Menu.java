@@ -7,7 +7,7 @@ import src.interfaces.OpcionMenu;
 public class Menu {
     private Scanner sc;
 
-    public Menu(Scanner sc){
+    public Menu(Scanner sc) {
         this.sc = sc;
     }
 
@@ -26,6 +26,8 @@ public class Menu {
                 return new OpcionCirculo();
             case 2:
                 return new OpcionTrianguloRectangulo();
+            case 3:
+                return new OpcionParalelogramo();
             default:
                 System.out.println("Opción no válida.");
                 return null;

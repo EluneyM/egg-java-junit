@@ -43,6 +43,15 @@ public class MainTest {
 
             """;
 
+    public static final String MENSAJE_MENU_PARALELOGRAMO = """
+                Ingrese la base del paralelogramo: 
+                Ingrese altura del paralelogramo:
+                    ¿Qué desea calcular?
+                    1 - Perímetro del paralelogramo
+                    2 - Área del paralelogramo
+    
+                """;
+
     @BeforeEach
     public void setUp(){
         System.setOut(new PrintStream(outputStream));
@@ -124,6 +133,44 @@ public class MainTest {
 
         String resultadoEsperado = MENSAJE_MENU_1 + MENSAJE_MENU_TRIANGULO_RECTANGULO + """
             El área del tríangulo es 100.00""";
+
+        Assert.assertEquals(resultadoEsperado, salidaCapturada);
+    }
+
+    @Test
+    @DisplayName("Debería calcular el perímetro del paralelogramo")
+    void testCalcularPerimetroDelParalelogramo() {
+        byte[] entradaPorTeclado = "3\n10\n20\n1\n".getBytes();
+
+        ByteArrayInputStream in = new ByteArrayInputStream(entradaPorTeclado);
+        System.setIn(in);
+        Main.sc = new Scanner(System.in);
+
+        Main.main(new String[1]);
+
+        String salidaCapturada = outputStream.toString().trim();
+
+        String resultadoEsperado = MENSAJE_MENU_1 + MENSAJE_MENU_PARALELOGRAMO + """
+            El perímetro del paralelogramo es 60.00""";
+
+        Assert.assertEquals(resultadoEsperado, salidaCapturada);
+    }
+
+    @Test
+    @DisplayName("Debería calcular el área del paralelogramo")
+    void testCalcularAreaDelParalelogramo() {
+        byte[] entradaPorTeclado = "3\n10\n20\n2\n".getBytes();
+
+        ByteArrayInputStream in = new ByteArrayInputStream(entradaPorTeclado);
+        System.setIn(in);
+        Main.sc = new Scanner(System.in);
+
+        Main.main(new String[1]);
+
+        String salidaCapturada = outputStream.toString().trim();
+
+        String resultadoEsperado = MENSAJE_MENU_1 + MENSAJE_MENU_PARALELOGRAMO + """
+            El área del paralelogramo es 200.00""";
 
         Assert.assertEquals(resultadoEsperado, salidaCapturada);
     }
