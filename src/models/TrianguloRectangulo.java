@@ -1,6 +1,6 @@
 package src.models;
 
-public class TrianguloRectangulo extends FiguraGeometrica {
+public class TrianguloRectangulo {
     
     private double base;
     private double altura;
@@ -16,12 +16,10 @@ public class TrianguloRectangulo extends FiguraGeometrica {
         return new TrianguloRectangulo(base, altura);
     }
 
-    @Override
     public void calcularPerimetro() {
         System.out.printf("El perímetro del tríangulo es %.2f", this.base + this.altura + this.hipotenusa);
     }
 
-    @Override
     public void calcularArea() {
         System.out.printf("El área del tríangulo es %.2f", (this.base * this.altura) / 2);
     }
