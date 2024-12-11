@@ -2,8 +2,8 @@ package src;
 
 import java.util.Scanner;
 
-import models.Circulo;
-import models.TrianguloRectangulo;
+import src.models.Circulo;
+import src.models.TrianguloRectangulo;
 
 public class Main {
 
