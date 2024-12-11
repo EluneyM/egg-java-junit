@@ -9,6 +9,7 @@ import org.junit.Assert;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -42,6 +43,21 @@ public class MainTest {
 
         String salidaCapturada = outputStream.toString().trim();
 
-        Assert.assertEquals(mensaje, salidaCapturada);
+        Assert.assertEquals("Contraseña no segura. " + mensaje, salidaCapturada);
+    }
+
+    @Test
+    @DisplayName("Informar que la contraseña es segura cuando cumple con todos los criterios")
+    void testPasswordSegura() {
+
+        ByteArrayInputStream in = new ByteArrayInputStream("Asdf1234#".getBytes());
+        System.setIn(in);
+        Main.sc = new Scanner(System.in);
+
+        Main.main(new String[1]);
+
+        String salidaCapturada = outputStream.toString().trim();
+
+        Assert.assertEquals("¡Contraseña segura! Cumple con todos los criterios.", salidaCapturada);
     }
 }

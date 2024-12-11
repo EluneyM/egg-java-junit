@@ -45,9 +45,13 @@ public class PasswordValidator {
         return this;
     }
 
-    public void mostrarErrores() {
+    public void validar() {
+        if (this.errores.isEmpty()) {
+            System.out.println("¡Contraseña segura! Cumple con todos los criterios.");
+        }
+
         for (String error : this.errores) {
-            System.out.println(error + "\n");
+            System.out.println("Contraseña no segura. " + error + "\n");
         }
     }
 }

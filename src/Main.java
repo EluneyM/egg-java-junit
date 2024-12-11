@@ -15,8 +15,7 @@ public class Main {
                 .minimoCaracteres(8)
                 .incluirMinusculaMayuscula()
                 .incluirNumero()
-                .incluirCaracterEspecial();
-
-        passwordValidator.mostrarErrores();
+                .incluirCaracterEspecial()
+                .validar();
     }
 }
