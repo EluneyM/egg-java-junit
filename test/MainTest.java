@@ -18,6 +18,31 @@ public class MainTest {
 
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 
+    public static final String MENSAJE_MENU_1 = """
+            ¿Qué figura geométrica desea utilizar?
+            1 - Círculo
+            2 - Tríangulo Reactángulo
+            3 - Paralelogramo
+           
+            """;
+
+    public static final String MENSAJE_MENU_CIRCULO = """
+            Ingrese radio del circulo
+                ¿Qué desea calcular?
+                1 - Perímetro del círculo
+                2 - Área del círculo
+
+            """;
+
+    public static final String MENSAJE_MENU_TRIANGULO_RECTANGULO = """
+            Ingrese la base del tríangulo: 
+            Ingrese altura del tríangulo:
+                ¿Qué desea calcular?
+                1 - Perímetro del tríangulo
+                2 - Área del tríangulo
+
+            """;
+
     @BeforeEach
     public void setUp(){
         System.setOut(new PrintStream(outputStream));
@@ -41,17 +66,7 @@ public class MainTest {
 
         String salidaCapturada = outputStream.toString().trim();
 
-        String resultadoEsperado = """
-            ¿Qué figura geométrica desea utilizar?
-            1 - Círculo
-            2 - Tríangulo Reactángulo
-            3 - Paralelogramo
-
-            Ingrese radio del circulo
-                ¿Qué desea calcular?
-                1 - Perímetro del círculo
-                2 - Área del círculo
-
+        String resultadoEsperado = MENSAJE_MENU_1 + MENSAJE_MENU_CIRCULO + """
             El perímetro del círculo es 62.83""";
 
         Assert.assertEquals(resultadoEsperado, salidaCapturada);
@@ -69,17 +84,7 @@ public class MainTest {
 
         String salidaCapturada = outputStream.toString().trim();
 
-        String resultadoEsperado = """
-            ¿Qué figura geométrica desea utilizar?
-            1 - Círculo
-            2 - Tríangulo Reactángulo
-            3 - Paralelogramo
-
-            Ingrese radio del circulo
-                ¿Qué desea calcular?
-                1 - Perímetro del círculo
-                2 - Área del círculo
-
+        String resultadoEsperado = MENSAJE_MENU_1 + MENSAJE_MENU_CIRCULO + """
             El área del círculo es 314.16""";
 
         Assert.assertEquals(resultadoEsperado, salidaCapturada);
@@ -98,18 +103,7 @@ public class MainTest {
 
         String salidaCapturada = outputStream.toString().trim();
 
-        String resultadoEsperado = """
-            ¿Qué figura geométrica desea utilizar?
-            1 - Círculo
-            2 - Tríangulo Reactángulo
-            3 - Paralelogramo
-
-            Ingrese la base del tríangulo: 
-            Ingrese altura del tríangulo:
-                ¿Qué desea calcular?
-                1 - Perímetro del tríangulo
-                2 - Área del tríangulo
-
+        String resultadoEsperado = MENSAJE_MENU_1 + MENSAJE_MENU_TRIANGULO_RECTANGULO + """
             El perímetro del tríangulo es 52.36""";
 
         Assert.assertEquals(resultadoEsperado, salidaCapturada);
@@ -128,18 +122,7 @@ public class MainTest {
 
         String salidaCapturada = outputStream.toString().trim();
 
-        String resultadoEsperado = """
-            ¿Qué figura geométrica desea utilizar?
-            1 - Círculo
-            2 - Tríangulo Reactángulo
-            3 - Paralelogramo
-
-            Ingrese la base del tríangulo: 
-            Ingrese altura del tríangulo:
-                ¿Qué desea calcular?
-                1 - Perímetro del tríangulo
-                2 - Área del tríangulo
-
+        String resultadoEsperado = MENSAJE_MENU_1 + MENSAJE_MENU_TRIANGULO_RECTANGULO + """
             El área del tríangulo es 100.00""";
 
         Assert.assertEquals(resultadoEsperado, salidaCapturada);
