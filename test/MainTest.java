@@ -1,13 +1,14 @@
 package test;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import org.junit.Assert;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 
 import src.Main;
 
@@ -26,14 +27,11 @@ public class MainTest {
         System.setOut(printStream);
     }
 
-    @Test
-    @DisplayName("Comprueba que main devulve el saludo")
-    void testMain() {
-        Main.main(new String[1]);
-        // Capturar la salida como una cadena
-        String salidaCapturada = outputStream.toString().trim(); // Usar trim() para eliminar saltos de línea al final
-
-        // Verificar que la salida sea la esperada
-        Assert.assertEquals("Hola, Mundo!", salidaCapturada);
+    @ParameterizedTest
+    @CsvFileSource(resources = "/csv/numeros.csv")
+    public void esPrimoTest(boolean check, int number) {
+        boolean result = Main.esPrimos(number);
+        assertEquals(check, result);
     }
+
 }
