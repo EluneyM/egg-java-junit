@@ -2,7 +2,7 @@ package src;
 
 import java.util.Scanner;
 
-public class App {
+public class Main {
     public static Scanner miScanner = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -22,7 +22,7 @@ public class App {
     public static void adivinar(int numrandom, int max, int min) {
         int numeroIngresadoUsuario;
         do {
-            System.out.printf("Ingrese un número entre %d y %d\n", min, max);
+            System.out.printf("Ingrese un número entre %d y %d" + System.lineSeparator(), min, max);
             numeroIngresadoUsuario = miScanner.nextInt();
             if (numeroIngresadoUsuario > numrandom) {
                 System.out.println("El número secreto es menor");

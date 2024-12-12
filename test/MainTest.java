@@ -12,14 +12,14 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
 
-import src.App;
+import src.Main;
 
-public class AppTest {
+public class MainTest {
     @RepeatedTest(25)
     void testNumeroAleatorio() {
         int numMenor = 13;
         int numMayor = 35;
-        int numeroRandom = App.numeroAleatorio(numMayor, numMenor);
+        int numeroRandom = Main.numeroAleatorio(numMayor, numMenor);
         System.out.println(" " + numeroRandom + " " + numMayor + " " + numMenor);
         assertTrue(numeroRandom >= numMenor && numeroRandom <= numMayor);
     }
@@ -31,13 +31,17 @@ public class AppTest {
 
         ByteArrayInputStream in = new ByteArrayInputStream(entradaPorTeclado);
         System.setIn(in);
-        App.miScanner = new Scanner(System.in);
+        Main.miScanner = new Scanner(System.in);
 
-        App.adivinar(17, 35, 13);
+        Main.adivinar(17, 35, 13);
 
         String salidaCapturada = outputStream.toString().trim();
 
-        String esperado = "Ingrese un número entre 13 y 35\nEl número secreto es mayor\nIngrese un número entre 13 y 35\nEncontraste el número! es: 17";
+        String esperado = """
+        Ingrese un número entre 13 y 35
+        El número secreto es mayor
+        Ingrese un número entre 13 y 35
+        Encontraste el número! es: 17""";
 
         assertEquals(esperado, salidaCapturada);
     }
