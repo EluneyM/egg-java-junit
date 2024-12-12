@@ -7,18 +7,31 @@ public class Main {
     public static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        boolean check = true;
+        try (Scanner scanner = sc) {
+            int num;
+            boolean esPrimo;
+      
+            do {
+              esPrimo = true;
+              System.out.println("Introduce un número para verificar si es primo (0 para salir)");
+              num = Integer.valueOf(scanner.nextLine());
+      
+              if (esPrimo(num) && num > 1) {
+                System.out.println("Es primo.");
+              } else {
+                System.out.println("No es primo.");
+              }
+      
+            } while (!esPrimo || num != 0);
+      
+          } catch (Exception e) {
+            System.out.println(e);
+          }
 
-        do {
-            System.out.println("Ingrese un numbero y te dire si es primo");
-            int number = sc.nextInt();
-            check = esPrimos(number);
-
-        } while (check);
         sc.close();
     }
 
-    public static boolean esPrimos(Integer number) {
+    public static boolean esPrimo(Integer number) {
         if (number % 2 == 0) {
             if (number == 2) {
                 return true;
